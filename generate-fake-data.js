@@ -1,8 +1,8 @@
 var faker = require("faker");
 const fs = require("fs");
 
-const DATA_COUNT = 1000000;
-const SUPPLIER_COUNT = 38000;
+const DATA_COUNT = 15000;
+const SUPPLIER_COUNT = 3000;
 const INDEX_NAME = "requisition-data";
 
 let suppliers = [];
@@ -14,7 +14,7 @@ for (let i = 0; i < SUPPLIER_COUNT; i++) {
 
 let dString = "";
 for (let i = 1; i < DATA_COUNT + 1; i++) {
-  dString += `{ "index": { "_index": ${INDEX_NAME}, "_id": ${i} } }
+  dString += `{ "index": { "_index": "${INDEX_NAME}", "_id": ${i} } }
 ${JSON.stringify({
   id: "PO" + String(i).padStart(10, "0"),
   date: faker.date.past(),
